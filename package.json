@@ -1,6 +1,6 @@
 {
   "name": "@yandex-cloud/axios-wrapper",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Generic helper class for wrapping axios calls",
   "main": "build/esm/index.js",
   "typings": "build/esm/index.d.ts",
