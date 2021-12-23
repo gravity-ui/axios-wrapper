@@ -18,6 +18,9 @@
     "lint": "run-p lint:*",
     "prepublishOnly": "npm run build"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {},
   "devDependencies": {
     "@commitlint/cli": "^15.0.0",
