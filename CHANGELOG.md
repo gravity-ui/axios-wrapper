@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.0.2](https://www.github.com/yandex-cloud/axios-wrapper/compare/v1.0.1...v1.0.2) (2021-12-23)
+
+
+### Bug Fixes
+
+* **deps-dev:** bump axios from 0.19.2 to 0.21.2 ([4a045fa](https://www.github.com/yandex-cloud/axios-wrapper/commit/4a045fa427f99193a1226dabca1c9b7dffb08d73))
+
 ### [1.0.1](https://www.github.com/yandex-cloud/axios-wrapper/compare/v1.0.0...v1.0.1) (2021-12-23)
 
 
