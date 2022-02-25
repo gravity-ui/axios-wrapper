@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://www.github.com/yandex-cloud/axios-wrapper/compare/v1.0.2...v1.1.0) (2022-02-25)
+
+
+### Features
+
+* add commonjs build to package.json ([2747900](https://www.github.com/yandex-cloud/axios-wrapper/commit/27479003b85432022c68e9582732354f52fd798b))
+
 ### [1.0.2](https://www.github.com/yandex-cloud/axios-wrapper/compare/v1.0.1...v1.0.2) (2021-12-23)
 
 
