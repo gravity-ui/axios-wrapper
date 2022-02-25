@@ -2,7 +2,8 @@
   "name": "@yandex-cloud/axios-wrapper",
   "version": "1.0.2",
   "description": "Generic helper class for wrapping axios calls",
-  "main": "build/esm/index.js",
+  "module": "build/esm/index.js",
+  "main": "build/cjs/index.js",
   "typings": "build/esm/index.d.ts",
   "files": [
     "build/*"
@@ -10,9 +11,10 @@
   "scripts": {
     "test": "npm run test:unit",
     "test:unit": "exit 0",
-    "build": "npm run build:clean && npm run build:compile",
-    "build:clean": "rm -rf lib",
-    "build:compile": "tsc",
+    "build": "npm run build:clean && npm run build:esm && npm run build:cjs",
+    "build:clean": "rm -rf build",
+    "build:esm": "tsc --module esnext --outDir build/esm",
+    "build:cjs": "tsc --module commonjs --outDir build/cjs",
     "lint:js": "eslint --ext .js,.jsx,.ts,.tsx",
     "lint:prettier": "prettier --check --loglevel=error '**/*.{js,jsx,ts,tsx}'",
     "lint": "run-p lint:*",
