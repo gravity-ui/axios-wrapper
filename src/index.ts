@@ -218,14 +218,14 @@ export default class AxiosWrapper {
         url: string,
         params: ApiMethodParams['params'],
         options: ApiMethodParams['options'] = {},
-        onDownloadProgress
+        onDownloadProgress,
     ) {
         return this.request<T>({
             method: 'GET',
             url,
             params,
             options,
-            onDownloadProgress
+            onDownloadProgress,
         });
     }
 
