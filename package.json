@@ -18,6 +18,7 @@
     "lint:js": "eslint --ext .js,.jsx,.ts,.tsx",
     "lint:prettier": "prettier --check --loglevel=error '**/*.{js,jsx,ts,tsx}'",
     "lint": "run-p lint:*",
+    "typecheck": "tsc --noEmit",
     "prepublishOnly": "npm run build"
   },
   "publishConfig": {
