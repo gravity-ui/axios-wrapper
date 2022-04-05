@@ -31,6 +31,8 @@ Currently 4 request settings are supported:
 - `collectRequest (bool)`: optional flag, telling if the request should be logger (default `true`)
 - `requestConfig (object)`: optional config with the custom request parameters
 - `headers (object)`: optional object with custom request headers.
+- `timeout (number)`: optional request timeout
+- `onDownloadProgress (function)`: optional callback for processing file download progress
 
 ### Headers
 The `setDefaultHeader({name (string), value (string), methods (array)})` method allows to add a default
