@@ -46,6 +46,6 @@ export interface ApiMethodParams {
         timeout?: number;
         headers?: Record<string, unknown>;
         requestConfig?: Record<string, unknown>;
+        onDownloadProgress?: AxiosRequestConfig['onDownloadProgress'];
     };
-    onDownloadProgress?: (progress: ProgressEvent) => void;
 }
