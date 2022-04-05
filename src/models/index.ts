@@ -47,4 +47,5 @@ export interface ApiMethodParams {
         headers?: Record<string, unknown>;
         requestConfig?: Record<string, unknown>;
     };
+    onDownloadProgress?: (progress: ProgressEvent) => void;
 }
