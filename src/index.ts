@@ -131,7 +131,15 @@ export default class AxiosWrapper {
     }
 
     async request<T = any>(methodParams: ApiMethodParams): Promise<T> {
-        const {method, url, data = null, params, options = {}, retries = 0} = methodParams;
+        const {
+            method,
+            url,
+            data = null,
+            params,
+            options = {},
+            retries = 0,
+            onDownloadProgress,
+        } = methodParams;
 
         const axiosSettings: AxiosRequestConfig = options.requestConfig || {};
         const {concurrentId, collectRequest = true, timeout, headers} = options;
@@ -155,6 +163,7 @@ export default class AxiosWrapper {
             url,
             data,
             params,
+            onDownloadProgress,
         };
 
         try {
@@ -209,12 +218,14 @@ export default class AxiosWrapper {
         url: string,
         params: ApiMethodParams['params'],
         options: ApiMethodParams['options'] = {},
+        onDownloadProgress
     ) {
         return this.request<T>({
             method: 'GET',
             url,
             params,
             options,
+            onDownloadProgress
         });
     }
 
