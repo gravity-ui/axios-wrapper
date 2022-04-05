@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://www.github.com/yandex-cloud/axios-wrapper/compare/v1.1.0...v1.2.0) (2022-04-05)
+
+
+### Features
+
+* handle onDownloadProgress ([65558d1](https://www.github.com/yandex-cloud/axios-wrapper/commit/65558d10679a202983747f0a1db3be1294f8431e))
+
 ## [1.1.0](https://www.github.com/yandex-cloud/axios-wrapper/compare/v1.0.2...v1.1.0) (2022-02-25)
 
 
