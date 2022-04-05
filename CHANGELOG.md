@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.2.1](https://www.github.com/yandex-cloud/axios-wrapper/compare/v1.2.0...v1.2.1) (2022-04-05)
+
+
+### Bug Fixes
+
+* onDownloadProgress should be passed into options ([5008ab3](https://www.github.com/yandex-cloud/axios-wrapper/commit/5008ab3727367c3e852398e5314cdbdf19e4ec68))
+
 ## [1.2.0](https://www.github.com/yandex-cloud/axios-wrapper/compare/v1.1.0...v1.2.0) (2022-04-05)
 
 
