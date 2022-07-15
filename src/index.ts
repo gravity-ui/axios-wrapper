@@ -180,11 +180,20 @@ export default class AxiosWrapper {
                 this.clearRequestToken(concurrentId);
             }
 
+            let errorResponse;
+            if (thrown.response) {
+                errorResponse = thrown.response;
+            } else if (typeof thrown.toJSON === 'function') {
+                errorResponse = thrown.toJSON();
+            } else {
+                errorResponse = thrown;
+            }
+
             if (collectRequest) {
                 this.collectRequest({
                     ...request,
                     requestStart,
-                    response: thrown.response,
+                    response: errorResponse,
                     error: true,
                     cancelled: axios.isCancel(thrown),
                     responseError: thrown,
@@ -192,7 +201,7 @@ export default class AxiosWrapper {
             }
 
             return this.handleRequestError(
-                thrown.response,
+                errorResponse,
                 () => this.request({...methodParams, retries: retries + 1}),
                 retries,
                 new Error(thrown instanceof Error ? thrown.message : 'Unknown error'),
