@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.2](https://github.com/yandex-cloud/axios-wrapper/compare/v1.2.1...v1.2.2) (2022-07-15)
+
+
+### Bug Fixes
+
+* correctly handle errors with the missing response ([6b9dc0e](https://github.com/yandex-cloud/axios-wrapper/commit/6b9dc0eab2496aa21cd27e6044b5c6ab235210d1)), closes [#17](https://github.com/yandex-cloud/axios-wrapper/issues/17)
+
 ### [1.2.1](https://www.github.com/yandex-cloud/axios-wrapper/compare/v1.2.0...v1.2.1) (2022-04-05)
 
 
