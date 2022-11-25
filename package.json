@@ -1,6 +1,6 @@
 {
-  "name": "@yandex-cloud/axios-wrapper",
-  "version": "1.2.2",
+  "name": "@gravity-ui/axios-wrapper",
+  "version": "1.0.0",
   "description": "Generic helper class for wrapping axios calls",
   "module": "build/esm/index.js",
   "main": "build/cjs/index.js",
@@ -28,10 +28,10 @@
   "devDependencies": {
     "@commitlint/cli": "^15.0.0",
     "@commitlint/config-conventional": "^15.0.0",
+    "@gravity-ui/eslint-config": "^1.0.2",
+    "@gravity-ui/prettier-config": "^1.0.1",
+    "@gravity-ui/tsconfig": "^1.0.0",
     "@types/lodash": "^4.14.149",
-    "@yandex-cloud/eslint-config": "^1.0.0",
-    "@yandex-cloud/prettier-config": "^1.0.0",
-    "@yandex-cloud/tsconfig": "^1.0.0",
     "axios": "^0.21.2",
     "babel-eslint": "^10.1.0",
     "eslint": "^8.2.0",
@@ -46,7 +46,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/yandex-cloud/axios-wrapper"
+    "url": "https://github.com/gravity-ui/axios-wrapper"
   },
   "license": "MIT"
 }
