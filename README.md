@@ -2,6 +2,12 @@
 This library provides a convenient wrapper around Axios adding automatic cancelling of concurrent requests
 to its features.
 
+## Install
+
+```shell
+npm install --save-dev @gravity-ui/axios-wrapper
+```
+
 ## HTTP API
 
 ### Constructor parameters
