@@ -1,4 +1,4 @@
-import {AxiosRequestConfig, AxiosResponse} from 'axios';
+import {AxiosRequestConfig, AxiosRequestHeaders, AxiosResponse} from 'axios';
 
 export interface CollectorOptions {
     collectRequests?: number;
@@ -44,7 +44,7 @@ export interface ApiMethodParams {
         concurrentId?: string;
         collectRequest?: boolean;
         timeout?: number;
-        headers?: Record<string, unknown>;
+        headers?: AxiosRequestHeaders;
         requestConfig?: Record<string, unknown>;
         onDownloadProgress?: AxiosRequestConfig['onDownloadProgress'];
     };

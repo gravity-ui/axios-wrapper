@@ -1,12 +1,10 @@
 {
-  "extends": "@gravity-ui/tsconfig/tsconfig",
+  "extends": "@gravity-ui/tsconfig/tsconfig.json",
   "compilerOptions": {
-    "allowJs": true,
+    "resolveJsonModule": true,
     "baseUrl": ".",
     "importHelpers": true,
     "declaration": true
   },
-  "include": [
-    "src/**/*.ts",
-  ]
+  "include": ["src/**/*.ts"]
 }
