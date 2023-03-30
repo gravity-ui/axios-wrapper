@@ -1,5 +1,5 @@
 import cloneDeep from 'lodash/cloneDeep';
-import axios, {AxiosInstance, AxiosRequestConfig, CancelTokenSource} from 'axios';
+import axios, {AxiosHeaders, AxiosInstance, AxiosRequestConfig, CancelTokenSource} from 'axios';
 import {
     ApiMethodParams,
     CollectedRequestInfo,
@@ -73,8 +73,9 @@ export default class AxiosWrapper {
         const headers = this._axios.defaults.headers;
         if (Array.isArray(methods)) {
             methods.forEach((method) => {
-                if (headers[method]) {
-                    headers[method][name] = value;
+                const data = headers[method];
+                if (data && data instanceof AxiosHeaders) {
+                    data[name] = value;
                 }
             });
         } else {
