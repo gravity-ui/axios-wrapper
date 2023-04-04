@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.0](https://github.com/gravity-ui/axios-wrapper/compare/v1.3.0...v1.4.0) (2023-04-04)
+
+
+### Features
+
+* update lock-file ([d75be24](https://github.com/gravity-ui/axios-wrapper/commit/d75be241736a18968c7d7940733b62a7acf4b7e0))
+
 ## [1.3.0](https://github.com/gravity-ui/axios-wrapper/compare/v1.2.2...v1.3.0) (2022-11-29)
 
 
