@@ -3,9 +3,10 @@
 ## [1.4.0](https://github.com/gravity-ui/axios-wrapper/compare/v1.3.0...v1.4.0) (2023-04-04)
 
 
-### Features
+### chore
 
-* update lock-file ([d75be24](https://github.com/gravity-ui/axios-wrapper/commit/d75be241736a18968c7d7940733b62a7acf4b7e0))
+* update dependencies ([9f5f4a6](https://github.com/gravity-ui/axios-wrapper/commit/9f5f4a65b54867c632b26310d3a96c610a27fc07))
+* use node 18 ([d6271b39](https://github.com/gravity-ui/axios-wrapper/commit/d6271b39b92a0b1cb54de2318f1d2ce23a6118a9))
 
 ## [1.3.0](https://github.com/gravity-ui/axios-wrapper/compare/v1.2.2...v1.3.0) (2022-11-29)
 
