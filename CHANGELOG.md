@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.1](https://github.com/gravity-ui/axios-wrapper/compare/v1.4.0...v1.4.1) (2023-04-13)
+
+
+### Bug Fixes
+
+* options types ([4324fb8](https://github.com/gravity-ui/axios-wrapper/commit/4324fb8508e8d553143f90f4646506a24c03a971))
+
 ## [1.4.0](https://github.com/gravity-ui/axios-wrapper/compare/v1.3.0...v1.4.0) (2023-04-04)
 
 
