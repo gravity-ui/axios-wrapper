@@ -134,7 +134,7 @@ export default class AxiosWrapper {
     async request<T = any>(methodParams: ApiMethodParams): Promise<T> {
         const {method, url, data = null, params, options = {}, retries = 0} = methodParams;
 
-        const axiosSettings: AxiosRequestConfig = options.requestConfig || {};
+        const axiosSettings = options.requestConfig || {};
         const {concurrentId, collectRequest = true, timeout, headers, onDownloadProgress} = options;
         if (concurrentId) {
             this.cancelRequest(concurrentId);
