@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.0](https://github.com/gravity-ui/axios-wrapper/compare/v1.4.1...v1.5.0) (2024-07-30)
+
+
+### Features
+
+* adds an ability to change CSRF header name ([#37](https://github.com/gravity-ui/axios-wrapper/issues/37)) ([996c3d0](https://github.com/gravity-ui/axios-wrapper/commit/996c3d0195bdf4dc06a63a0ac47b773477961e50))
+
 ## [1.4.1](https://github.com/gravity-ui/axios-wrapper/compare/v1.4.0...v1.4.1) (2023-04-13)
 
 
