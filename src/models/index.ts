@@ -9,6 +9,7 @@ export interface AxiosWrapperOptions {
     config?: AxiosRequestConfig;
     apiEndpoint?: string;
     collector?: CollectorOptions;
+    csrfHeaderName?: string;
 }
 
 export interface CollectedRequestInfo {
