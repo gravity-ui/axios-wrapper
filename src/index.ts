@@ -140,7 +140,7 @@ export default class AxiosWrapper {
     }
 
     async request<T = any>(methodParams: ApiMethodParams): Promise<T> {
-        const {method, url, data = null, params, options = {}, retries = 0} = methodParams;
+        const {method, url, data = null, params = {}, options = {}, retries = 0} = methodParams;
 
         const axiosSettings = options.requestConfig || {};
         const {concurrentId, collectRequest = true, timeout, headers, onDownloadProgress} = options;
@@ -226,8 +226,8 @@ export default class AxiosWrapper {
 
     get<T = any>(
         url: string,
-        params: ApiMethodParams['params'],
-        options: ApiMethodParams['options'] = {},
+        params?: ApiMethodParams['params'],
+        options?: ApiMethodParams['options'],
     ) {
         return this.request<T>({
             method: 'GET',
@@ -240,8 +240,8 @@ export default class AxiosWrapper {
     post<T = any>(
         url: string,
         data: unknown,
-        params: ApiMethodParams['params'],
-        options: ApiMethodParams['options'] = {},
+        params?: ApiMethodParams['params'],
+        options?: ApiMethodParams['options'],
     ) {
         return this.request<T>({
             method: 'POST',
@@ -255,8 +255,8 @@ export default class AxiosWrapper {
     put<T = any>(
         url: string,
         data: unknown,
-        params: ApiMethodParams['params'],
-        options: ApiMethodParams['options'] = {},
+        params?: ApiMethodParams['params'],
+        options?: ApiMethodParams['options'],
     ) {
         return this.request<T>({
             method: 'PUT',
@@ -270,8 +270,8 @@ export default class AxiosWrapper {
     patch<T = any>(
         url: string,
         data: unknown,
-        params: ApiMethodParams['params'],
-        options: ApiMethodParams['options'] = {},
+        params?: ApiMethodParams['params'],
+        options?: ApiMethodParams['options'],
     ) {
         return this.request<T>({
             method: 'PATCH',
@@ -285,8 +285,8 @@ export default class AxiosWrapper {
     delete<T = any>(
         url: string,
         data: unknown,
-        params: ApiMethodParams['params'],
-        options: ApiMethodParams['options'] = {},
+        params?: ApiMethodParams['params'],
+        options?: ApiMethodParams['options'],
     ) {
         return this.request<T>({
             method: 'DELETE',
@@ -299,8 +299,8 @@ export default class AxiosWrapper {
 
     head<T = any>(
         url: string,
-        params: ApiMethodParams['params'],
-        options: ApiMethodParams['options'] = {},
+        params?: ApiMethodParams['params'],
+        options?: ApiMethodParams['options'],
     ) {
         return this.request<T>({
             method: 'HEAD',
