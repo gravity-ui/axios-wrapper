@@ -1,5 +1,5 @@
 import cloneDeep from 'lodash/cloneDeep';
-import axios, {AxiosInstance, AxiosRequestConfig, CancelTokenSource} from 'axios';
+import axios, {AxiosHeaders, AxiosInstance, AxiosRequestConfig, CancelTokenSource} from 'axios';
 import {
     ApiMethodParams,
     CollectedRequestInfo,
@@ -22,10 +22,17 @@ export default class AxiosWrapper {
         requests: CollectedRequestInfo[];
     };
 
+    protected readonly csrfHeaderName: string;
+
     protected apiEndpoint?: string;
 
     constructor(options: AxiosWrapperOptions = {}) {
-        const {config = {}, apiEndpoint = '/api', collector = {}} = options;
+        const {
+            config = {},
+            apiEndpoint = '/api',
+            collector = {},
+            csrfHeaderName = 'X-CSRF-Token',
+        } = options;
 
         const axiosConfig: AxiosRequestConfig = {
             xsrfCookieName: '',
@@ -43,6 +50,7 @@ export default class AxiosWrapper {
             errors: [],
             requests: [],
         };
+        this.csrfHeaderName = csrfHeaderName;
     }
 
     setApiEndpoint = (endpoint = '') => {
@@ -56,9 +64,9 @@ export default class AxiosWrapper {
     };
 
     setCSRFToken = (token: string) => {
-        this._axios.defaults.headers.post['X-CSRF-Token'] = token;
-        this._axios.defaults.headers.put['X-CSRF-Token'] = token;
-        this._axios.defaults.headers.delete['X-CSRF-Token'] = token;
+        this._axios.defaults.headers.post[this.csrfHeaderName] = token;
+        this._axios.defaults.headers.put[this.csrfHeaderName] = token;
+        this._axios.defaults.headers.delete[this.csrfHeaderName] = token;
     };
 
     setDefaultHeader = ({
@@ -73,8 +81,9 @@ export default class AxiosWrapper {
         const headers = this._axios.defaults.headers;
         if (Array.isArray(methods)) {
             methods.forEach((method) => {
-                if (headers[method]) {
-                    headers[method][name] = value;
+                const data = headers[method];
+                if (data && data instanceof AxiosHeaders) {
+                    data[name] = value;
                 }
             });
         } else {
@@ -133,8 +142,8 @@ export default class AxiosWrapper {
     async request<T = any>(methodParams: ApiMethodParams): Promise<T> {
         const {method, url, data = null, params = {}, options = {}, retries = 0} = methodParams;
 
-        const axiosSettings: AxiosRequestConfig = options.requestConfig || {};
-        const {concurrentId, collectRequest = true, timeout, headers} = options;
+        const axiosSettings = options.requestConfig || {};
+        const {concurrentId, collectRequest = true, timeout, headers, onDownloadProgress} = options;
         if (concurrentId) {
             this.cancelRequest(concurrentId);
             axiosSettings.cancelToken = this.createRequestToken(concurrentId);
@@ -155,6 +164,7 @@ export default class AxiosWrapper {
             url,
             data,
             params,
+            onDownloadProgress,
         };
 
         try {
@@ -179,11 +189,20 @@ export default class AxiosWrapper {
                 this.clearRequestToken(concurrentId);
             }
 
+            let errorResponse;
+            if (thrown.response) {
+                errorResponse = thrown.response;
+            } else if (typeof thrown.toJSON === 'function') {
+                errorResponse = thrown.toJSON();
+            } else {
+                errorResponse = thrown;
+            }
+
             if (collectRequest) {
                 this.collectRequest({
                     ...request,
                     requestStart,
-                    response: thrown.response,
+                    response: errorResponse,
                     error: true,
                     cancelled: axios.isCancel(thrown),
                     responseError: thrown,
@@ -191,7 +210,7 @@ export default class AxiosWrapper {
             }
 
             return this.handleRequestError(
-                thrown.response,
+                errorResponse,
                 () => this.request({...methodParams, retries: retries + 1}),
                 retries,
                 new Error(thrown instanceof Error ? thrown.message : 'Unknown error'),

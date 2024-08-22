@@ -9,6 +9,7 @@ export interface AxiosWrapperOptions {
     config?: AxiosRequestConfig;
     apiEndpoint?: string;
     collector?: CollectorOptions;
+    csrfHeaderName?: string;
 }
 
 export interface CollectedRequestInfo {
@@ -44,7 +45,8 @@ export interface ApiMethodParams {
         concurrentId?: string;
         collectRequest?: boolean;
         timeout?: number;
-        headers?: Record<string, unknown>;
-        requestConfig?: Record<string, unknown>;
+        headers?: AxiosRequestConfig['headers'];
+        requestConfig?: AxiosRequestConfig;
+        onDownloadProgress?: AxiosRequestConfig['onDownloadProgress'];
     };
 }
