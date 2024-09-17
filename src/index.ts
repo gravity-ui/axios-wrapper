@@ -173,7 +173,6 @@ export default class AxiosWrapper {
                 ...request,
             });
 
-            this.clearRequestToken(concurrentId);
             if (collectRequest) {
                 this.collectRequest({
                     ...request,
@@ -185,8 +184,6 @@ export default class AxiosWrapper {
         } catch (thrown: any) {
             if (axios.isCancel(thrown)) {
                 throw {isCancelled: true, error: thrown};
-            } else {
-                this.clearRequestToken(concurrentId);
             }
 
             let errorResponse;
@@ -215,6 +212,8 @@ export default class AxiosWrapper {
                 retries,
                 new Error(thrown instanceof Error ? thrown.message : 'Unknown error'),
             ) as Promise<T>;
+        } finally {
+            this.clearRequestToken(concurrentId);
         }
     }
 
