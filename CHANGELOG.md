@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.1](https://github.com/gravity-ui/axios-wrapper/compare/v1.5.0...v1.5.1) (2024-09-18)
+
+
+### Bug Fixes
+
+* memory leak ([#39](https://github.com/gravity-ui/axios-wrapper/issues/39)) ([4be703d](https://github.com/gravity-ui/axios-wrapper/commit/4be703d65484ace7d1df29470cfba9852d282da0))
+
 ## [1.5.0](https://github.com/gravity-ui/axios-wrapper/compare/v1.4.1...v1.5.0) (2024-07-30)
 
 
